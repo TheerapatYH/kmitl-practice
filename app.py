@@ -1,5 +1,5 @@
 def calculate_grade(score):
-    if score >= 80:
+    if score >= 90:
         return "A"
     elif score >= 70:
         return "B"
