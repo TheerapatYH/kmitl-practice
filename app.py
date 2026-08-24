@@ -1,13 +1,25 @@
-def calculate_grade(score):
-    if score >= 90:
-        return "A"
-    elif score >= 70:
-        return "B"
-    elif score >= 60:
-        return "C"
-    elif score >= 50:
-        return "D"
-    return "F"
+from fastapi import FastAPI
+
+app = FastAPI()
 
 
-print(calculate_grade(85))
+@app.get("/")
+def home():
+    return {
+        "message": "KMITL Practice API"
+    }
+
+
+@app.get("/health")
+def health():
+    return {
+        "status": "UP"
+    }
+
+
+@app.get("/students/{student_id}")
+def get_student(student_id: int):
+    return {
+        "student_id": student_id,
+        "name": "Test Student"
+    }
